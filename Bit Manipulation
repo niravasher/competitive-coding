@@ -1,0 +1,82 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    // setting a bit
+    int num = 4, pos = 1;
+    num = num | (1 << pos);
+    cout << num << endl;
+
+    // unsetting a bit
+    int num2 = 7, pos2 = 1;
+    num2 = num2 & (~(1 << pos2));
+    cout << num2 << endl;
+
+    // Toggle bit at nth position
+    int num3 = 5, pos3 = 1;
+    num3 = num3^(1 << pos);
+    cout << num3 << endl;
+
+    // Check if bit at nth position is set or unset
+    int num4 = 10, pos4 = 3;
+    bool bit = num4 & (1 << pos4);
+    cout << bit << endl;
+
+    // 1's compliment
+    int num5 = 100;
+    cout << (~num5) << endl;
+    
+    // 1's compliment
+    int num6 = 100;
+    cout << (~num6)+1 << endl;
+    
+    // strip off lowest set bit
+    int num7 = 125;
+    num7 = (num7) & (num7-1);
+    cout << num7;
+    
+    // Getting lowest set bit of a number
+    int num8 = 10;
+    num8 = num8 & (-num8); // Take the 2's compliment for finding "-num8"
+    cout << num8 << endl;
+    
+    // convert string to uppercase
+    char str[] = "sanjaykhanna";
+    const int x = 32;
+    for (int i = 0; str[i] != '\0'; i++) {
+        str[i] = str[i] & ~x;
+    }
+    cout << str << endl;
+    
+    // convert string to lowercase
+    char stri[] = "SANJAYKHANNA";
+    for (int i = 0; stri[i] != '\0'; i++) {
+        stri[i] = stri[i] | x;
+    }
+    cout << stri << endl;
+    
+    // count set bits in integer
+    int count = 0;
+    int num9 = 10;
+    while(num9) {
+        if ((num9 & 1) == 1) {
+            count++;
+        }
+        num9 >>= 1;
+    }
+    cout << count << endl;
+    
+    // Power of two
+    int y = 32;
+    bool b = !(y & (y-1));
+    if (y == 0) { cout << "YES"; }
+    else if (b == 1) { cout << "YES"; }
+    else { cout << "NO"; }
+    
+    // Find log base 2 of an integer
+    // Need help with this
+
+    return 0;
+}
