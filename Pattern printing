@@ -2,6 +2,86 @@
 
 using namespace std;
 
+void printPattern(int n) {
+    // upper part
+    for (int i = 0 ; i < n ; i++) {
+        for (int j = n ; j > i ; j--) {
+            cout << "* ";
+        }
+        for (int m = 0 ; m < i ; m++) {
+            cout << "  ";
+        }
+        for (int k = 0 ; k < i ; k++) {
+            cout << "  ";
+        }
+        for (int l = n ; l > i ; l--) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    
+    // lower part
+    for (int i = 0 ; i < n ; i++) {
+        for (int j = 0 ; j <= i ; j++) {
+            cout << "* ";
+        }
+        for (int m = n ; m > i+1 ; m--) {
+            cout << "  ";
+        }
+        for (int k = n ; k > i+1 ; k--) {
+            cout << "  ";
+        }
+        for (int l = 0 ; l < i+1 ; l++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+
+void printPattern2(int n) {
+    int var1, var = 1; 
+      
+    for(int i = 1; i <= n; i++) 
+    {    
+        // for odd rows 
+        if(i%2!=0) 
+        {    
+            // calculate starting value 
+            var = var + i - 1; 
+            for(int j=1; j<=i; j++) 
+            { 
+                if(j==1) 
+                { 
+                    cout<<var; 
+                } 
+                else
+                   cout<<"*"<<var; 
+                     
+               var++;     
+            } 
+        } 
+        else // for even rows 
+        {          
+            var1 = var + i -1; // calculate starting value  
+            for(int j=1; j<=i; j++) 
+            { 
+                if(j==1) 
+                { 
+                    // print without star 
+                    cout<<var1; 
+                } 
+                else
+                { 
+                    // print with star 
+                    cout<<"*"<<var1; 
+                } 
+                var1--; 
+            } 
+        }  
+        cout<<endl; 
+    }
+}
+
 int main()
 {
     int n;
@@ -86,6 +166,9 @@ int main()
         ch++;
         cout << endl;
     }
+    
+    printPattern(n);
+    printPattern2(n);
     
     return 0;
 }
